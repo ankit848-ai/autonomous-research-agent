@@ -1,7 +1,8 @@
 """
 Auto-generated experiment template.
-
-This template is used by the CoderExecutor agent to build ML experiments.
+This file is NOT executed directly.
+The CoderExecutor agent generates a dynamic experiment.py based on the Designer plan.
+This template exists only as a reference/example.
 """
 
 from sklearn.datasets import make_classification
@@ -9,20 +10,23 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 def run_experiment():
-    # Generate synthetic data
+    # Example static dataset
     X, y = make_classification(
         n_samples=500,
         n_features=20,
+        n_classes=2,
         random_state=42
     )
 
-    # Split
-    Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.2)
+    # Split dataset
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
 
-    # Model
-    clf = RandomForestClassifier(n_estimators=15)
-    clf.fit(Xtr, ytr)
+    # Example model
+    clf = RandomForestClassifier(n_estimators=20, random_state=42)
+    clf.fit(X_train, y_train)
 
-    # Evaluate
-    acc = clf.score(Xte, yte)
-    print("ACCURACY:", acc)
+    # Accuracy output (for demo only)
+    acc = clf.score(X_test, y_test)
+    print("Accuracy:", acc)
