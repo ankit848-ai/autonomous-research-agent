@@ -1,30 +1,43 @@
+import os
 import json
 import matplotlib.pyplot as plt
 import re
 
 class Analyst:
-    def process(self, result, session_id):
-        stdout = result["stdout"]
 
-        # Extract accuracy from stdout
-        match = re.search(r"ACCURACY:\s*([0-9.]+)", stdout)
+    def process(self, result, session_id):
+        """Extract accuracy, save metrics + plot, return structured output."""
+
+        stdout = result["output"]  # FIXED
+
+        # ---- Extract accuracy ----
+        match = re.search(r"Accuracy:\s*([0-9\.]+)", stdout)
         if match:
             acc = float(match.group(1))
         else:
             acc = 0.0
 
-        # Save plot
+        # ---- Ensure artifacts folder exists ----
+        folder = f"artifacts/{session_id}"
+        os.makedirs(folder, exist_ok=True)
+
+        # ---- Save accuracy plot ----
+        plot_path = f"{folder}/accuracy.png"
         plt.figure(figsize=(6, 4))
         plt.bar(["Accuracy"], [acc])
         plt.title("Model Accuracy")
         plt.ylabel("Score")
-        plot_path = f"artifacts/{session_id}/accuracy.png"
         plt.savefig(plot_path)
+        plt.close()
 
-        # Save metrics
-        metrics = {"accuracy": acc}
-        metrics_path = f"artifacts/{session_id}/metrics.json"
+        # ---- Save metrics ----
+        metrics_path = f"{folder}/metrics.json"
         with open(metrics_path, "w") as f:
-            json.dump(metrics, f, indent=4)
+            json.dump({"accuracy": acc}, f, indent=4)
 
-        return metrics
+        # ---- Return combined structured output ----
+        return {
+            "accuracy": acc,
+            "plot_path": plot_path,
+            "metrics_path": metrics_path
+        }
