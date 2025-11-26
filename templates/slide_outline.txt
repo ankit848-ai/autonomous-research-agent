@@ -1,21 +1,79 @@
 Slide 1: Title Slide
-- ResearchLab-AI Results
+- ResearchLab-AI
+- Autonomous Multi-Agent Research System
 - Automatically generated research workflow output
 
 Slide 2: Problem Statement
-- Research is time consuming
-- Requires literature, experiments, code, analysis
+- Research requires multiple complex steps:
+  - Literature review
+  - Experiment planning
+  - Machine learning code development
+  - Execution and debugging
+  - Metrics interpretation
+  - Paper and slide preparation
+- These steps are time-consuming and require expertise
 
-Slide 3: System Architecture
-- Multi-agent system (researcher, designer, coder, analyst, writer)
+Slide 3: Motivation
+- Automating research workflows increases productivity
+- Helps beginners build ML experiments without coding
+- Ensures reproducibility and consistency
+- Ideal for education, prototyping, and rapid experimentation
 
-Slide 4: Experiment Overview
-- Model, dataset
-- Metric
+Slide 4: System Architecture
+- Multi-agent collaborative pipeline:
+  - Researcher Agent → Literature
+  - Designer Agent → Experiment plan
+  - Coder-Executor Agent → Code generation + execution
+  - Analyst Agent → Metrics + plots
+  - Writer Agent → Paper + slides
+- Orchestrator manages message passing and workflow control
 
-Slide 5: Results
-- Accuracy
-- Plot
+Slide 5: Researcher Agent Output
+- Literature insights extracted about the topic:
+  - Foundations
+  - Modern techniques
+  - Future directions
 
-Slide 6: Conclusion
-- Research workflow automated
+Slide 6: Designer Agent Output
+- Experiment parameters:
+  - Dataset size, features, classes
+  - Selected model (RandomForest)
+  - Evaluation metric (accuracy)
+  - Experimental steps
+
+Slide 7: Generated ML Code
+- Auto-built Python script
+- Contains dataset creation, splitting, model training
+- Fully runnable and reproducible
+
+Slide 8: Execution & Logs
+- Code executed automatically
+- Logs recorded in artifacts/session_id/run_logs.txt
+- No manual execution required
+
+Slide 9: Results
+- Accuracy obtained from experiment
+- Observed performance summary
+- Insights from metrics
+
+Slide 10: Accuracy Plot
+- Automatically generated bar chart
+- Visual representation of performance
+
+Slide 11: Limitations
+- Uses synthetic dataset
+- Limited to classical ML models
+- Literature is mock-generated
+- No deep learning support yet
+
+Slide 12: Future Improvements
+- LLM-powered literature agent
+- Real dataset integration
+- Multiple ML models support
+- Deep learning experiments
+- Cloud-hosted agent orchestration
+
+Slide 13: Conclusion
+- Demonstrated an AI-driven research automation pipeline
+- End-to-end workflow from topic → paper + slides
+- Shows potential for automated scientific workflows
