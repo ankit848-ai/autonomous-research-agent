@@ -18,6 +18,7 @@ class Orchestrator:
         session_id = str(uuid.uuid4())
         os.makedirs(f"artifacts/{session_id}", exist_ok=True)
 
+        print(f"Session ID: {session_id}")
         print("1. Researching topic...")
         literature = self.researcher.generate_literature(topic)
 
@@ -34,5 +35,5 @@ class Orchestrator:
         print("5. Creating paper + slides...")
         outputs = self.writer.create_outputs(literature, plan, analysis, session_id)
 
-        print("Done.")
+        print("Pipeline completed successfully.")
         return outputs
